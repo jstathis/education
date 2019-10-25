@@ -1,0 +1,214 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class NGGReimagined extends JFrame
+	{
+	private static final long serialVersionUID = 1L;
+	static String name; 
+	static int className;
+	static JFrame frame = new JFrame();
+
+	public static void main(String[] args)
+	    {
+			askName();
+	    	game();
+	    	playAgain();
+	    }
+	
+		public static void askName()
+		{
+			name = JOptionPane.showInputDialog("What is your name?");
+			JOptionPane.showMessageDialog(frame, "Hi, " + name);
+			if(name.contentEquals("Jonathan") || name.contentEquals("jonathan"))
+			{
+				impossibleMode();
+			}
+		}
+		
+		public static void game()
+		{	
+			Object[] options = {"Easy", "Medium", "Hard"};
+			className = JOptionPane.showOptionDialog(frame, "What difficulty would you like?",
+					"Possible Mode Unlocked",
+					JOptionPane.YES_NO_CANCEL_OPTION,
+					JOptionPane.QUESTION_MESSAGE,
+					null, options, options[1]);
+			switch(className)
+				{
+				case 0:
+					{
+						int counter = 0;
+						Object[] pickOptions = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+						int picker;
+						int chosenOne = (int)(Math.random() * 10 + 1);
+						boolean flag = true;
+						while(flag)
+						{
+							picker = JOptionPane.showOptionDialog(frame, "Pick a number between 1 and 10.",
+									"Number Picker",
+									JOptionPane.YES_NO_CANCEL_OPTION,
+									JOptionPane.QUESTION_MESSAGE,
+									null, pickOptions, null);
+							if(picker == chosenOne)
+							{
+								JOptionPane.showMessageDialog(frame, "Nice job, " + name + "! You won!");
+								JOptionPane.showMessageDialog(frame, "You took " + (counter + 1) + " tries to win.");
+								flag = false;
+								playAgain();
+							}
+							else if(picker > chosenOne)
+							{
+								JOptionPane.showMessageDialog(frame, "Too high! Guess again.");
+								counter++;
+							}
+							else if(picker < chosenOne)
+							{
+								JOptionPane.showMessageDialog(frame, "Too low! Guess again.");
+								counter++;
+							}
+						}
+						break;
+					}
+				case 1:
+					{
+						int counter = 0;
+						Object[] pickOptions = new Object[50];
+						for(int i = 0; i <= 49; i++)
+						{
+							pickOptions[i] = i + 1;
+						}
+						int picker;
+						int chosenOne = (int)(Math.random() * 50 + 1);
+						boolean flag = true;
+						while(flag)
+						{
+							picker = JOptionPane.showOptionDialog(frame, "Pick a number between 1 and 50.",
+									"Who even reads these anyway?",
+									JOptionPane.YES_NO_CANCEL_OPTION,
+									JOptionPane.QUESTION_MESSAGE,
+									null, pickOptions, null);
+							if(picker == chosenOne)
+							{
+								JOptionPane.showMessageDialog(frame, "Nice job, " + name + "! You won!");
+								JOptionPane.showMessageDialog(frame, "You took " + (counter + 1) + " tries to win.");
+								flag = false;
+								playAgain();
+							}
+								else if(picker > chosenOne)
+							{
+								JOptionPane.showMessageDialog(frame, "Too high! Guess again.");
+								counter++;
+							}
+							else if(picker < chosenOne)
+							{
+								JOptionPane.showMessageDialog(frame, "Too low! Guess again.");
+								counter++;
+							}
+						}
+						break;
+					}
+				case 2:
+					{
+						int counter = 0;
+						Object[] pickOptions = new Object[100];
+						for(int i = 0; i <= 99; i++)
+						{
+							pickOptions[i] = i + 1;
+						}
+						int picker;
+						int chosenOne = (int)(Math.random() * 100 + 1);
+						boolean flag = true;
+						while(flag)
+						{
+							picker = (int) JOptionPane.showInputDialog(frame, 
+						            "Pick a number between 1 and 100.",
+						            "ALL YOUR NUMBER ARE BELONG TO US",
+						            JOptionPane.QUESTION_MESSAGE, 
+						            null, pickOptions, null);
+							if(picker == chosenOne)
+							{
+								JOptionPane.showMessageDialog(frame, "Nice job, " + name + "! You won!");
+								JOptionPane.showMessageDialog(frame, "You took " + (counter + 1) + " tries to win.");
+								flag = false;
+								playAgain();
+							}
+							else if(picker > chosenOne)
+							{
+								JOptionPane.showMessageDialog(frame, "Too high! Guess again.");
+								counter++;
+							}
+							else if(picker < chosenOne)
+							{
+								JOptionPane.showMessageDialog(frame, "Too low! Guess again.");
+								counter++;
+							}
+						}
+						break;
+					}
+				}
+		}
+	
+		public static void playAgain()
+		{
+			Object[] options = {"Yes", "No"};
+			int again;
+			again = JOptionPane.showOptionDialog(frame, "Play again?",
+					"again and again and again and again and i YEET",
+					JOptionPane.YES_NO_CANCEL_OPTION,
+					JOptionPane.QUESTION_MESSAGE,
+					null, options, options[0]);
+			switch(again)
+			{
+			case 0:
+				{
+					game();
+				}
+			case 1:
+				{
+					JOptionPane.showMessageDialog(frame, "Alright. See you later, " + name + "!");
+					System.exit(0);
+				}
+			}
+		}
+		
+		public static void impossibleMode()
+		{
+			JOptionPane.showMessageDialog(frame, "Welcome to your private, personal hell, " + name + ".");
+			JOptionPane.showMessageDialog(frame, "There will be no escape from your torment.");
+			int counter = 0;
+			Object[] pickOptions = new Object[1000000];
+			for(int i = 0; i <= 999999; i++)
+			{		
+				pickOptions[i] = i + 1;
+			}
+			int picker;
+			int chosenOne = (int)(Math.random() * 1000000 + 1);
+			boolean flag = true;
+			while(flag)
+			{
+				picker = (int) JOptionPane.showInputDialog(frame, 
+			            "Pick a number between 1 and 1000000.",
+			            "ALL YOUR NUMBER ARE BELONG TO US",
+			            JOptionPane.QUESTION_MESSAGE, 
+			            null, pickOptions, null);
+				if(picker == chosenOne)
+				{
+					JOptionPane.showMessageDialog(frame, "Nice job, " + name + "! You won!");
+					JOptionPane.showMessageDialog(frame, "You took " + (counter + 1) + " tries to win.");
+					flag = false;
+					playAgain();
+				}
+				else if(picker > chosenOne)
+				{
+					JOptionPane.showMessageDialog(frame, "Too high! Guess again.");
+					counter++;
+				}
+				else if(picker < chosenOne)
+				{
+					JOptionPane.showMessageDialog(frame, "Too low! Guess again.");
+					counter++;
+				}
+			}
+		}
+	}
